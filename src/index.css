@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F9FAFB;
+  color: #111827;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7C3AED;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5b21b6;
+}
+
+/* Line clamp utility */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Bubble button styles */
+.bubble-button {
+  @apply rounded-full px-5 py-2.5 font-semibold text-button transition-all duration-200 ease-in-out;
+}
+
+.bubble-button-primary {
+  @apply bg-primary-600 text-white;
+}
+
+.bubble-button-primary:hover {
+  @apply bg-primary-700 scale-105 shadow-lg;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+}
+
+.bubble-button-secondary {
+  @apply bg-transparent border border-primary-600 text-primary-600;
+}
+
+.bubble-button-secondary:hover {
+  @apply bg-primary-50 scale-105;
+}
+
+/* AI suggestion animation */
+.ai-suggestion {
+  @apply animate-fade-in;
+}
+
+.ai-suggestion::before {
+  content: "✨ AI Suggestion Ready";
+  @apply text-tiny text-primary-600 font-medium mb-2 block;
+}
+
+/* Typewriter effect */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40) forwards;
+}
+
+/* Focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.card-hover:hover {
+  @apply transform -translate-y-1 shadow-xl;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #7C3AED 0%, #4ADE80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Notes-specific styles */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Recording pulse animation */
+@keyframes pulse-record {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.pulse-record {
+  animation: pulse-record 1s ease-in-out infinite;
+}
+
+/* Smooth transitions for layout changes */
+.layout-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus styles for accessibility */
+.focus-visible {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Custom checkbox styles */
+input[type="checkbox"]:checked {
+  background-color: #7C3AED;
+  border-color: #7C3AED;
+}
+
+/* Floating action button styles */
+.fab {
+  @apply fixed bottom-6 right-6 w-14 h-14 bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200;
+}
+
+.fab:hover {
+  @apply scale-110 bg-primary-700;
+}
